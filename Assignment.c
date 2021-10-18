@@ -137,7 +137,7 @@ void removeNameCard() {
         int position = -1;
         while (record_array[count].nameCardID != 0) {
             char from_record[20];
-            strcpy(from_record,record_array[count].personName);
+            strcpy(from_record, record_array[count].personName);
             to_lower(from_record);
             if (strcmp(from_record, usr_in) == 0) {
                 position = count;
@@ -150,22 +150,22 @@ void removeNameCard() {
             printf("The target person name is not in the name card holder\n");
 
 
-        }else{
+        } else {
             printf("The name card is removed\n");
-            printf("nameCardID: %d\n",record_array[position].nameCardID);
-            printf("personName: %s\n",record_array[position].personName);
-            printf("companyName: %s\n",record_array[position].companyName);
+            printf("nameCardID: %d\n", record_array[position].nameCardID);
+            printf("personName: %s\n", record_array[position].personName);
+            printf("companyName: %s\n", record_array[position].companyName);
 
-            int times_to_shift = ARR_SIZE-1-position;
+            int times_to_shift = ARR_SIZE - 1 - position;
             for (int i = position; i <= times_to_shift; ++i) {
-                record_array[i]=record_array[i+1];
+                record_array[i] = record_array[i + 1];
             }
 
             NameCard temp;
-            temp.nameCardID=0;
-            strcpy(temp.personName,"");
-            strcpy(temp.companyName,"");
-            record_array[ARR_SIZE-1]=temp;
+            temp.nameCardID = 0;
+            strcpy(temp.personName, "");
+            strcpy(temp.companyName, "");
+            record_array[ARR_SIZE - 1] = temp;
 
 
         }
@@ -173,10 +173,10 @@ void removeNameCard() {
     reorder_array();
 }
 
-void getNameCard(){
+void getNameCard() {
 
 
-    int num_element=num_elements();
+    int num_element = num_elements();
     char usr_in[20];
 
     printf("getNameCard():\n");
@@ -187,24 +187,24 @@ void getNameCard(){
     usr_in[strcspn(usr_in, "\n")] = 0;
     to_lower(usr_in);
 
-    int pos=-1;
+    int pos = -1;
     for (int i = 0; i < num_element; ++i) {
         char from_record[20];
-        strcpy(from_record,record_array[i].personName);
+        strcpy(from_record, record_array[i].personName);
         to_lower(from_record);
-        if(strcmp(from_record,usr_in)==0){
-            pos=i;
+        if (strcmp(from_record, usr_in) == 0) {
+            pos = i;
             break;
         }
 
     }
-    if(pos==-1){
+    if (pos == -1) {
         printf("The target person name is not found\n");
-    }else{
+    } else {
         printf("The target person name is found\n");
-        printf("nameCardID: %d\n",record_array[pos].nameCardID);
-        printf("personName: %s\n",record_array[pos].personName);
-        printf("companyName: %s\n",record_array[pos].companyName);
+        printf("nameCardID: %d\n", record_array[pos].nameCardID);
+        printf("personName: %s\n", record_array[pos].personName);
+        printf("companyName: %s\n", record_array[pos].companyName);
     }
 
 
@@ -225,55 +225,29 @@ int main() {
 
     scanf("%d", &usr_sel);
 
-//test data
-//    NameCard test1;
-//    strcpy(test1.companyName, "abcd");
-//    test1.nameCardID = 10;
-//    strcpy(test1.personName, "alpha 1");
-//
-//    NameCard test2;
-//    strcpy(test2.companyName, "abcd");
-//    test2.nameCardID = 2;
-//    strcpy(test2.personName, "alpha 2");
-//
-//    NameCard test3;
-//    strcpy(test3.companyName, "abcd");
-//    test3.nameCardID = 3;
-//    strcpy(test3.personName, "Alpha 3");
-//
-//    NameCard test4;
-//    strcpy(test4.companyName, "abcd");
-//    test4.nameCardID = 4;
-//    strcpy(test4.personName, "alpha 4");
-//
-//    NameCard test5;
-//    strcpy(test5.companyName, "");
-//    test5.nameCardID = 0;
-//    strcpy(test5.personName, "");
-//
-//    record_array[0] = test1;
-//    record_array[1] = test2;
-//    record_array[2] = test3;
-//    record_array[3] = test4;
-//    record_array[4] = test5;
-
-//end test data
 
 
     while (usr_sel != 5) {
+
         if (usr_sel == 1) {
             listNameCards(record_array);
         } else if (usr_sel == 2) {
             addNameCard();
         } else if (usr_sel == 3) {
             removeNameCard();
-        }else if(usr_sel==4){
+        } else if (usr_sel == 4) {
             getNameCard();
-        }else{
+        } else {
             return 0;
         }
         printf("Enter your choice:\n");
-        scanf("%d", &usr_sel);
+
+        if(scanf("%d", &usr_sel)!=1){
+            fflush(stdin);
+            usr_sel=5;
+
+        }
+
     }
 
 
