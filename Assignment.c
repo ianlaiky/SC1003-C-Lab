@@ -152,7 +152,7 @@ void removeNameCard() {
 
         }else{
             printf("The name card is removed\n");
-            printf("nameCardID: %s\n",record_array[position].nameCardID);
+            printf("nameCardID: %d\n",record_array[position].nameCardID);
             printf("personName: %s\n",record_array[position].personName);
             printf("companyName: %s\n",record_array[position].companyName);
 
