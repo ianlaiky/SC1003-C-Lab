@@ -226,7 +226,6 @@ int main() {
     scanf("%d", &usr_sel);
 
 
-
     while (usr_sel != 5) {
 
         if (usr_sel == 1) {
@@ -242,11 +241,8 @@ int main() {
         }
         printf("Enter your choice:\n");
 
-        if(scanf("%d", &usr_sel)!=1){
-            fflush(stdin);
-            usr_sel=5;
+        scanf("%d", &usr_sel);
 
-        }
 
     }
 
