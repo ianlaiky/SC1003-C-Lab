@@ -1,25 +1,16 @@
 #include <stdio.h>
-void add1(int ar[], int size);
+
+void test(char *str){
+    while(*str!='\0'){
+        printf("%d\n",*str);
+        str++;
+    }
+
+}
 
 int main()
 {
-    int array[3][4];
-    int h,k;
-    for (h = 0; h < 3; h++)
-        for (k = 0; k < 4; k++)
-            scanf("%d", &array[h][k]);
-    for (h = 0; h < 3; h++) /* line a */
-        add1(array[0], 3*4);
-    for (h = 0; h < 3; h++) {
-        for (k = 0; k < 4; k++)
-            printf("%10d", array[h][k]);
-        putchar('\n');
-    }
+    char *ptr = "123";
+    test(ptr);
     return 0;
-}
-void add1(int ar[], int size)
-{
-    int k;
-    for (k = 0; k < size; k++)
-        ar[k]++;
 }
