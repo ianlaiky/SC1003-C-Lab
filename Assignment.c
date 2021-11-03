@@ -156,7 +156,7 @@ void removeNameCard() {
             printf("personName: %s\n", record_array[position].personName);
             printf("companyName: %s\n", record_array[position].companyName);
 
-            int times_to_shift = ARR_SIZE - 1 - position;
+            int times_to_shift = num_elements();
             for (int i = position; i <= times_to_shift; ++i) {
                 record_array[i] = record_array[i + 1];
             }
