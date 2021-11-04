@@ -2,12 +2,11 @@
 #include <stdlib.h>
 
 int main(){
+    int usrin=45;
+    float cal=(5.0/9)*(usrin-32);
+    printf("%f",cal);
 
-    int test;
-    char arr[]="hello";
 
-    test = arr[0];
-    printf("%d",test);
 
 
     return 0;
