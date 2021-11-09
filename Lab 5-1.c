@@ -1,3 +1,4 @@
+/*edit*/
 
 /*custom header*/
 
@@ -50,14 +51,17 @@ void printPB(PhoneBk *pb, int size)
 {
     /*edit*/
     /* Write your code here */
+    printf("The phonebook list:\n");
     if(size==0){
-        printf("“Empty phonebook\n");
+        printf("Empty phonebook\n");
     }else{
 
         for(int i=0;i<size;i++){
             printf("Name: %s\n",(pb+i)->name);
             printf("Telno: %s\n",(pb+i)->telno);
         }
+
+
     }
 
     /*end_edit*/
@@ -75,13 +79,12 @@ int readin(PhoneBk *pb)
 
         printf("Enter name:\n");
 
-        fgets(pb->name,100,stdin);
 
+        fgets(pb->name,100,stdin);
         if(p=strchr(pb->name,'\n')) *p='\0';
         if(strcmp(pb->name,"#")==0){
             break;
         }
-
 
 
         printf("Enter tel:\n");
@@ -95,7 +98,6 @@ int readin(PhoneBk *pb)
 
     return size;
 
-
     /*end_edit*/
 }
 void search(PhoneBk *pb, int size, char *target)
@@ -104,24 +106,23 @@ void search(PhoneBk *pb, int size, char *target)
     /* Write your code here */
     char usrin[20];
     char *p;
-    printf("Enter search name:\n");
-    fgets(usrin,100,stdin);
-    if(p=strchr(usrin,'\n')) *p='\0';
+    // printf("Enter search name:\n");
+    // fgets(usrin,100,stdin);
+    // if(p=strchr(usrin,'\n')) *p='\0';
 
     int found=-1;
     for(int i=0;i<size;i++){
-        if(strcmp(usrin,(pb+i)->name)==0){
+        if(strcmp(target,(pb+i)->name)==0){
             found=i;
             break;
         }
 
     }
     if(found!=-1){
-        printf("Name = %s, Tel = %s",(pb+found)->name,(pb+found)->telno);
+        printf("Name = %s, Tel = %s\n",(pb+found)->name,(pb+found)->telno);
     }else{
-        printf("Name not found!");
+        printf("Name not found!\n");
     }
-
 
     /*end_edit*/
 }
