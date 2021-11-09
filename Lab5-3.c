@@ -4,14 +4,17 @@
 
 /*end_edit*/
 #include <stdio.h>
+
 typedef struct {
     float operand1, operand2;
     char op;
 } bexpression;
+
 float compute1(bexpression expr);
+
 float compute2(bexpression *expr);
-int main()
-{
+
+int main() {
     bexpression e;
     int choice;
 
@@ -37,39 +40,39 @@ int main()
     } while (choice < 3);
     return 0;
 }
-float compute1(bexpression expr)
-{
+
+float compute1(bexpression expr) {
     /*edit*/
     /* Write your code here */
 
-    if(expr.op=='+'){
+    if (expr.op == '+') {
         return expr.operand1 + expr.operand2;
-    }else if(expr.op=='-'){
+    } else if (expr.op == '-') {
         return expr.operand1 - expr.operand2;
-    }else if(expr.op=='*'){
+    } else if (expr.op == '*') {
         return expr.operand1 * expr.operand2;
-    }else if(expr.op=='/'){
+    } else if (expr.op == '/') {
         return expr.operand1 / expr.operand2;
-    }else{
+    } else {
         return -1;
     }
 
     /*end_edit*/
 }
-float compute2(bexpression *expr)
-{
+
+float compute2(bexpression *expr) {
     /*edit*/
     /* Write your code here */
 
-    if(expr->op=='+'){
+    if (expr->op == '+') {
         return expr->operand1 + expr->operand2;
-    }else if(expr->op=='-'){
+    } else if (expr->op == '-') {
         return expr->operand1 - expr->operand2;
-    }else if(expr->op=='*'){
+    } else if (expr->op == '*') {
         return expr->operand1 * expr->operand2;
-    }else if(expr->op=='/'){
+    } else if (expr->op == '/') {
         return expr->operand1 / expr->operand2;
-    }else{
+    } else {
         return -1;
     }
 

@@ -4,10 +4,12 @@ struct circle {
     double x;
     double y;
 };
+
 int intersect(struct circle, struct circle);
+
 int contain(struct circle *, struct circle *);
-int main()
-{
+
+int main() {
     struct circle c1, c2;
     int choice, result = INIT_VALUE;
 
@@ -16,7 +18,7 @@ int main()
     printf("2: contain()\n");
     printf("3: exit()\n");
     do {
-        result=-1;
+        result = -1;
         printf("Enter your choice: \n");
         scanf("%d", &choice);
         switch (choice) {
@@ -50,34 +52,34 @@ int main()
     } while (choice < 3);
     return 0;
 }
-int intersect(struct circle c1, struct circle c2)
-{
+
+int intersect(struct circle c1, struct circle c2) {
     /*edit*/
     /* Write your code here */
 
     // printf("%f\n",c1.x);
     // printf("%f\n",c1.y);
 
-    double temp = sqrt(pow(c1.x-c1.y,2)+pow(c1.y-c2.y,2));
-    if(temp<c1.radius || temp<c2.radius){
+    double temp = sqrt(pow(c1.x - c1.y, 2) + pow(c1.y - c2.y, 2));
+    if (temp < c1.radius || temp < c2.radius) {
         return 1;
-    }else{
+    } else {
         return 0;
     }
 
     /*end_edit*/
 }
-int contain(struct circle *c1, struct circle *c2)
-{
+
+int contain(struct circle *c1, struct circle *c2) {
     /*edit*/
     /* Write your code here */
-    double distance = sqrt(pow(c1->x-c1->y,2)+pow(c1->y-c2->y,2));
-    double c2_2r = c2->radius*2;
-    double c1_2r = c1->radius*2;
+    double distance = sqrt(pow(c1->x - c1->y, 2) + pow(c1->y - c2->y, 2));
+    double c2_2r = c2->radius * 2;
+    double c1_2r = c1->radius * 2;
 
-    if(c1->radius>=c2_2r && c1->radius>=distance){
+    if (c1->radius >= c2_2r && c1->radius >= distance) {
         return 1;
-    }else{
+    } else {
         return 0;
     }
 
