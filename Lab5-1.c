@@ -5,19 +5,23 @@
 /*end_edit*/
 #include <stdio.h>
 #include <string.h>
+
 #define MAX 100
 typedef struct {
     char name[20];
     char telno[20];
 } PhoneBk;
+
 void printPB(PhoneBk *pb, int size);
+
 int readin(PhoneBk *pb);
+
 void search(PhoneBk *pb, int size, char *target);
-int main()
-{
+
+int main() {
     PhoneBk s[MAX];
     char t[20], *p;
-    int size=0, choice;
+    int size = 0, choice;
     char dummychar;
 
     printf("Select one of the following options: \n");
@@ -37,8 +41,8 @@ int main()
                 scanf("%c", &dummychar);
                 printf("Enter search name: \n");
                 fgets(t, 20, stdin);
-                if (p=strchr(t,'\n')) *p = '\0';
-                search(s,size,t);
+                if (p = strchr(t, '\n')) *p = '\0';
+                search(s, size, t);
                 break;
             case 3:
                 printPB(s, size);
@@ -47,18 +51,18 @@ int main()
     } while (choice < 4);
     return 0;
 }
-void printPB(PhoneBk *pb, int size)
-{
+
+void printPB(PhoneBk *pb, int size) {
     /*edit*/
     /* Write your code here */
     printf("The phonebook list:\n");
-    if(size==0){
+    if (size == 0) {
         printf("Empty phonebook\n");
-    }else{
+    } else {
 
-        for(int i=0;i<size;i++){
-            printf("Name: %s\n",(pb+i)->name);
-            printf("Telno: %s\n",(pb+i)->telno);
+        for (int i = 0; i < size; i++) {
+            printf("Name: %s\n", (pb + i)->name);
+            printf("Telno: %s\n", (pb + i)->telno);
         }
 
 
@@ -66,30 +70,30 @@ void printPB(PhoneBk *pb, int size)
 
     /*end_edit*/
 }
-int readin(PhoneBk *pb)
-{
+
+int readin(PhoneBk *pb) {
     /*edit*/
     /* Write your code here */
     char usr_name[20];
     char usr_tel[20];
     char *p;
-    int size=0;
-    while(1){
+    int size = 0;
+    while (1) {
 
 
         printf("Enter name:\n");
 
 
-        fgets(pb->name,100,stdin);
-        if(p=strchr(pb->name,'\n')) *p='\0';
-        if(strcmp(pb->name,"#")==0){
+        fgets(pb->name, 100, stdin);
+        if (p = strchr(pb->name, '\n')) *p = '\0';
+        if (strcmp(pb->name, "#") == 0) {
             break;
         }
 
 
         printf("Enter tel:\n");
-        fgets(pb->telno,100,stdin);
-        if(p=strchr(pb->telno,'\n')) *p='\0';
+        fgets(pb->telno, 100, stdin);
+        if (p = strchr(pb->telno, '\n')) *p = '\0';
 
         pb++;
 
@@ -100,8 +104,8 @@ int readin(PhoneBk *pb)
 
     /*end_edit*/
 }
-void search(PhoneBk *pb, int size, char *target)
-{
+
+void search(PhoneBk *pb, int size, char *target) {
     /*edit*/
     /* Write your code here */
     char usrin[20];
@@ -110,17 +114,17 @@ void search(PhoneBk *pb, int size, char *target)
     // fgets(usrin,100,stdin);
     // if(p=strchr(usrin,'\n')) *p='\0';
 
-    int found=-1;
-    for(int i=0;i<size;i++){
-        if(strcmp(target,(pb+i)->name)==0){
-            found=i;
+    int found = -1;
+    for (int i = 0; i < size; i++) {
+        if (strcmp(target, (pb + i)->name) == 0) {
+            found = i;
             break;
         }
 
     }
-    if(found!=-1){
-        printf("Name = %s, Tel = %s\n",(pb+found)->name,(pb+found)->telno);
-    }else{
+    if (found != -1) {
+        printf("Name = %s, Tel = %s\n", (pb + found)->name, (pb + found)->telno);
+    } else {
         printf("Name not found!\n");
     }
 

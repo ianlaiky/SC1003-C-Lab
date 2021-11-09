@@ -1,4 +1,6 @@
-ustom header*/
+/*edit*/
+
+/*custom header*/
 
 /*end_edit*/
 #include <stdio.h>
@@ -40,13 +42,13 @@ float compute1(bexpression expr)
     /*edit*/
     /* Write your code here */
 
-    if((strcmp(expr.op,'+')==0)){
+    if(expr.op=='+'){
         return expr.operand1 + expr.operand2;
-    }else if((strcmp(expr.op,'-')==0)){
+    }else if(expr.op=='-'){
         return expr.operand1 - expr.operand2;
-    }else if((strcmp(expr.op,'*')==0)){
+    }else if(expr.op=='*'){
         return expr.operand1 * expr.operand2;
-    }else if((strcmp(expr.op,'/')==0)){
+    }else if(expr.op=='/'){
         return expr.operand1 / expr.operand2;
     }else{
         return -1;
@@ -58,6 +60,19 @@ float compute2(bexpression *expr)
 {
     /*edit*/
     /* Write your code here */
+
+    if(expr->op=='+'){
+        return expr->operand1 + expr->operand2;
+    }else if(expr->op=='-'){
+        return expr->operand1 - expr->operand2;
+    }else if(expr->op=='*'){
+        return expr->operand1 * expr->operand2;
+    }else if(expr->op=='/'){
+        return expr->operand1 / expr->operand2;
+    }else{
+        return -1;
+    }
+
 
 
     /*end_edit*/
