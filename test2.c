@@ -69,20 +69,21 @@ int readin(PhoneBk *pb)
     char usr_name[20];
     char usr_tel[20];
     char *p;
-    int size;
+    int size=0;
     while(1){
 
 
         printf("Enter name:\n");
 
-
         fgets(pb->name,100,stdin);
 
-        if(strcmp(pb->name,"#")){
+        if(p=strchr(pb->name,'\n')) *p='\0';
+        if(strcmp(pb->name,"#")==0){
             break;
         }
 
-        if(p=strchr(pb->name,'\n')) *p='\0';
+
+
         printf("Enter tel:\n");
         fgets(pb->telno,100,stdin);
         if(p=strchr(pb->telno,'\n')) *p='\0';
