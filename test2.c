@@ -1,26 +1,17 @@
-/*edit*/
 
-/*custom header*/
-
-/*end_edit*/
+//What will be the output of the program?
 #include <stdio.h>
-#include <string.h>
-
-int main(){
-
-
-
-    char a[100];
-    int b;
-    char *c=a;
-    int *d=&b;
-
-    scanf("%s %d", a, &b);
-
-    printf("%s %d\n", a, b);
-    printf("%s\n", c);
-    printf("%d\n", *d);
-
-
-
+void add();
+int main()
+{
+   int i;
+   for (i=0; i<3; i++)
+      add();
+   return 0;
+}
+void add()
+{
+   static int x=0;
+   x++;
+   printf("%d", x);
 }
